@@ -1,0 +1,119 @@
+%h1 Pathways Designs
+
+%h3 Two tabs
+%p.tabs 
+  <a href="#" class="on">Your Review Feedback</a><a href="#" class="off">Component Not Confirmed? <span class="nsteps">Next Steps</span></a>
+
+:javascript
+  //$('.hider').click(
+  
+  //);
+
+.symbols
+  %h3 Performance Indicators
+  %dl
+    %dt Submitted for Review
+    %dd.submitted All Components Submitted
+    %dd.part-submitted One or More Component Submitted
+    %dd <a href="#" class="hider" onclick="return false;">Hide Submitted Indicators</a>  
+  %dl
+    %dt Review Results
+    %dd.confirmed All Components Confirmed
+    %dd.part-confirmed One or More Component Confirmed
+    %dd.nopass None Confirmed
+  %dl
+    %dt Component Review and Submission Information
+    %dd.check Confirmed
+    %dd.uncheck Submitted 
+    %dd.fail  Not Confirmed 
+
+.thegrid
+  %table.report
+    %tr.row
+      %th Performance Indicators
+      %th Pathway Submitted
+      %th Algebra 1 extremely looong name class
+      %th CAD (CTE)
+      %th Algebra 2
+      %th Geometry
+    - (1...4).each do  
+      %tr.row 
+        %td B2. Equations and Inequalities
+        %td.full-part
+        %td.part-part
+        %td.part-submitted
+        %td.confirmed
+        %td.confirmed
+      %tr.row
+        %td A1. Real Numbers and the really really long description of absurdity
+        %td.confirmed
+        %td
+        %td.part-confirmed
+        %td.part-part
+        %td.submitted
+      %tr.row
+        %td B2. Measurement and Approximation 
+        %td
+        %td
+        %td
+        %td
+        %td
+      %tr.row
+        %td A3: Informational Texts
+        %td.nopass
+        %td
+        %td  
+        %td.submitted
+        %td.part-submitted
+
+
+
+      
+  %h3 Full Design
+  %ul.report
+    %li.row
+      %ul.headers
+        %li Performance Indicators
+        %li Pathway Submitted
+        %li Algebra 1
+        %li CAD (CTE)
+        %li Algebra 2
+        %li Geometry
+    
+    - (1...4).each do
+      %li.row
+        %ul
+          %li A1. Real Numbers
+          %li.confirmed
+          %li
+          %li.part-confirmed
+          %li.part-part
+          %li.submitted
+      %li.row  
+        %ul
+          %li B1. Measurement and Approximation
+          %li
+          %li
+          %li
+          %li
+          %li
+      %li.row  
+        %ul
+          %li B2. Equations and Inequalities
+          %li.full-part
+          %li.part-part
+          %li.part-submitted  
+          %li.confirmed
+          %li.confirmed
+      %li.row  
+        %ul
+          %li A3: Informational Texts
+          %li.nopass
+          %li
+          %li  
+          %li.submitted
+          %li.part-submitted     
+
+%h3 More info pop-up
+%p.footnote
+  *Review in progress, results pending...

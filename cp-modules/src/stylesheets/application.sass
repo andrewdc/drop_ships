@@ -1,0 +1,395 @@
+@mixin clearfix
+  &:after
+    :content "."
+    :display block
+    :clear both
+    :visibility hidden
+    :line-height 0
+    :height 0
+@mixin lin-grad($from, $to)
+  :background -moz-linear-gradient(top, $from, $to)
+  :background -webkit-gradient(linear, left top, left bottom, from($from), to($to))
+  :filter progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to')
+  
+
+body
+  :margin 30px 100px
+  font:
+    family: helvetica, verdana
+    size: 0.9em
+.content
+  :clear both
+h1
+  :clear both
+  :background #D3F9D6 url() no-repeat
+  :padding 5px 5px 5px 15px
+  :-moz-border-radius 3px
+  :-webkit-border-radius 3px
+h2, h3
+  :color #407CC1
+  :font-size 1.2em
+  :margin-top 0em
+  :padding-left 15px
+h3
+  :color #000
+.tabs
+  :border-bottom 1px solid #5395CC
+  @include clearfix
+  a
+    :display block
+    :float left
+    :padding 10px 15px
+    :margin 0 5px
+    :text-decoration none
+    :font-weight bold
+    :background #C5C5C5 url() no-repeat
+    :-moz-border-radius 0.6em
+    :-moz-border-radius-bottomleft 0
+    :-moz-border-radius-bottomright 0
+    :-webkit-border-radius 0.6em
+    :-webkit-border-bottom-left-radius 0px
+    :-webkit-border-bottom-right-radius 0px
+    :color #0E3B5C
+    :text-shadow 0 1px 1px rgba(225, 225, 225, 0.8)
+    @include lin-grad(#95C8FC, #258CE3)
+    .nsteps
+      :font-size 0.7em
+
+    &:hover
+      @include lin-grad(#237CC9, #3FA7FF)
+      :color #fff
+      :text-shadow 0 1px 1px rgba(0, 0, 0, 0.3)
+  a.off
+    @include lin-grad(#DBEAFF, #ACD3EE)
+    :color #5C5C5C
+    :text-shadow 0 1px 1px rgba(255, 255, 255, 1)
+    &:hover
+      @include lin-grad(#237CC9, #3FA7FF)
+      :color #fff
+      :text-shadow 0 1px 1px rgba(0, 0, 0, 0.6)
+ul
+  :padding-left 10px
+.instructions
+  :width 450px
+  :float left
+  .intro
+    :font-weight bold
+    :padding 10px
+  li
+    :list-style none
+    :padding-left 45px
+    &.stepone 
+      :background url(../images/num1.png) no-repeat 0 0
+    &.steptwo
+      :background url(../images/num2.png) no-repeat 0 0
+    &.stepthree
+      :background url(../images/num3.png) no-repeat 0 0
+    &.stepfour
+      :background url(../images/num4.png) no-repeat 0 0
+    ul li
+      :list-style disc
+      :padding-left 5px
+.sg-image 
+  :background #ccc url("../images/sgbg.png") no-repeat 0 0px
+  :height 518px
+  :float left
+  :width 250px
+  :border-right 1px solid #5D5E61
+  :margin 10px 0 10px 30px
+
+.symbols
+  @include clearfix
+  dl
+    :float left
+    :margin-left 25px
+    :font-size 1em
+    :line-height 1.3em
+    dt
+      :font-weight bold
+    dd
+      :height 25px
+      :padding-left 30px
+      :line-height 1.7em
+      :margin 0
+      :background url('../images/states.png') -106px 0 no-repeat
+    dd.confirmed   
+      :background-position -80px 0
+    dd.part-confirmed
+      :background-position -80px -50px
+    dd.submitted
+      :background-position 0px -100px
+    dd.part-submitted
+      :background-position 0px -150px
+    dd.check
+      :background-position 0 -200px
+    dd.uncheck
+      :background-position 0 -250px
+    dd.fail
+      :background-position 0 -300px
+    dd.nopass
+      :background-position -80px -450px 
+.thegrid
+  ul.report
+    :list-style none
+    :padding 0
+    :margin 0
+    :width 1112px
+    :-moz-border-radius-topleft 5px
+    :-webkit-border-top-left-radius 5px
+    :-moz-border-radius-topright 5px
+    :-webkit-border-top-right-radius 5px
+    :background #EBF8FF url() no-repeat
+    li
+      :list-style none
+    li.row:nth-child(odd)
+      ul li
+        :background #f1f1f1 url('../images/states.png') -106px 0 no-repeat  
+    li.row:nth-child(even)
+      ul li
+        :background #FFFFFF url('../images/states.png') -106px 0 no-repeat
+    li.row
+      @include clearfix
+      :margin-bottom 25px
+      &:first-child
+        :margin-bottom 0
+      ul
+        :padding-left 0
+        li
+          :background url('../images/states.png') -106px 0 no-repeat
+          :float left
+          :width 150px 
+          :border-left 1px solid #BFBFBF
+          :height 35px
+          :padding 8px
+        li:first-child
+          :width 250px
+          :background #E2E5F5 url('../images/states.png') -106px 0 no-repeat  
+          :border none
+          :margin-bottom 0
+          :color #000
+        li:last-child
+          :border none  
+        li:nth-child(2)
+          border-right: 10px solid #BEBEBE
+          :background #CDF5CF url('../images/states.png') -106px 0 no-repeat        
+        li.confirmed
+          :background-position center 13px
+        li.part-confirmed      
+          :background-position center -37px
+        li.submitted           
+          :background-position center -87px
+        li.part-submitted      
+          :background-position center -137px
+        li.part-part           
+          :background-position center -337px
+        li.full-part           
+          :background-position center -387px
+        li.nopass           
+          :background-position center -437px  
+      ul.headers
+        :padding-left 0
+        li
+          :background #5A95CB url() no-repeat
+          :padding 5px 8px
+          :height 35px
+          :color #fff
+          :border-left none
+          :border-right 1px solid #5395CC
+          :text-align center
+          :line-height 35px 
+          &:first-child
+            :-moz-border-radius-topleft 5px
+            :-webkit-border-top-left-radius 5px
+          &:last-child
+            :-moz-border-radius-topright 5px
+            :-webkit-border-top-right-radius 5px
+            :border-right  none
+            :padding-right 9px
+          &:nth-child(2)
+            border-right: 10px solid #5A95CB   
+            
+            
+  table.report
+    :padding 0
+    :margin 0
+    :background #f1f1f1 url() no-repeat
+    :border none
+    :-moz-border-radius-topleft 5px
+    :-webkit-border-top-left-radius 5px
+    :-moz-border-radius-topright 5px
+    :-webkit-border-top-right-radius 5px
+    :border-spacing 0
+    :border-collapse collapse
+    tr,td
+      :border none
+    tr.row:nth-child(odd)
+      td
+        :background-color #DCDCDC 
+    tr.row:nth-child(even)
+      td
+        :background-color #FFFFFF
+    tr.row
+      :border-bottom 15px solid #f1f1f1
+      &:first-child
+        :margin-bottom 0
+      td
+        :min-width 150px 
+        :border-left 1px solid #BFBFBF
+        :padding 13px 5px 13px 10px
+        :min-height 35px
+        :background-position center center
+        :background-repeat no-repeat
+      td:first-child
+        :background-color #E2E5F5
+        :border none
+        :border-left 1px solid #BFBFBF
+        :margin-bottom 0
+        :color #000
+      td:last-child
+        :border-left 1px solid #BFBFBF 
+        :border-right 1px solid #BFBFBF 
+      td:nth-child(2)
+        :border-right 10px solid #BEBEBE
+        :background-color #CDF5CF  
+        :background-position center center
+        :background-repeat no-repeat      
+      td.confirmed
+        :background-image url('../images/confirmed.png') 
+      td.part-confirmed      
+        :background-image url('../images/part-confirmed.png') 
+      td.submitted           
+        :background-image url('../images/submitted.png') 
+      td.part-submitted      
+        :background-image url('../images/part-submitted.png') 
+      td.part-part           
+        :background-image url('../images/part-part.png') 
+      td.full-part           
+        :background-image url('../images/part-full.png') 
+      td.nopass           
+        :background-image url('../images/nopass.png')  
+      th
+        :background #5A95CB url() no-repeat
+        :padding 8px 8px
+        :color #fff
+        :border-left none
+        :border-right 1px solid #5395CC
+        :text-align center
+        &:first-child
+          :-moz-border-radius-topleft 5px
+          :-webkit-border-top-left-radius 5px
+        &:last-child
+          :-moz-border-radius-topright 5px
+          :-webkit-border-top-right-radius 5px
+          :border-right  none
+          :padding-right 9px
+        &:nth-child(2)
+          border-right: 10px solid #5A95CB            
+            
+a.continue,a.done
+  :-moz-border-radius 1em
+  :-webkit-border-radius 1em
+  :display block
+  :float left
+  @include lin-grad(#ECECEC, #D5D5D5)
+  :border 1px solid #89BDEA
+  :text-decoration none
+  color: #808080
+  :text-shadow #fff 0px 1px 0px
+  :padding 10px 10px 7px 10px
+  :margin-right 10px
+  :width 100px
+  :line-height 1em
+  :font-size 1em
+  :text-align center
+a.continue
+  :background -moz-linear-gradient(top, #ECECEC, #D5D5D5)
+a.done  
+  :background -moz-linear-gradient(top, #51C953, #1B7B14)
+  :color #fff
+  :text-shadow #098B04 0px 1px 0px
+            
+.footnote
+  :border 1px solid #DADADA
+  :padding 6px
+  :margin 0
+  :background #ECECEC url() no-repeat
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :color #8D8D8D
+  :float left
+  @include lin-grad(#ECECEC, #D5D5D5)
+  :height auto
+  &:hover
+    :color #000
+.footer
+  :clear both
+  :margin 50px 20px
+  
+  
+.bin
+  &:after
+    :content "."
+    :display block
+    :clear both
+    :visibility hidden
+    :line-height 0
+    :height 0
+  a
+    :display block
+    :float left
+    :padding 3px
+    :border 1px solid #A4A4A4
+    :border-top 5px solid #A4A4A4
+    :margin 0 3px 3px 0
+    :text-decoration none
+    :-moz-border-radius 2px
+    :-webkit-border-radius 2px
+    border-radius: 3px
+    :color #535353
+    :text-shadow #fff 0px 1px 0px
+    :cursor move
+    :width 100px
+    :height 65px
+    @include lin-grad(#EFEFEF, #B3B3B3)
+    behavior: url('http://10.1.5.5/~andrew_colclough/interfaces/r-feedback/site/PIE.htc')
+    &:hover
+      :border 1px solid #F23737
+      :border-top 5px solid #C02B2B 
+      :background #A4DCFF url() no-repeat
+      @include lin-grad(#F23737, #A82626)
+      :color #fff
+      :text-shadow #7B1C1C 0px 1px 0px
+      box-shadow:  0px 0px 5px #979797
+      -moz-box-shadow:  0px 0px 5px #979797
+      -webkit-box-shadow:  0px 0px 5px #979797
+      border-radius: 3px
+      behavior: url('http://10.1.5.5/~andrew_colclough/interfaces/r-feedback/site/PIE.htc')
+      
+.years
+  :width 600px
+ 
+  :border 1px dashed #fff
+  tr.headers, th
+    :height 15px    
+  td.year
+    :height 300px
+    :background #DADADA url() no-repeat
+    
+  td.ui-state-active
+    @include lin-grad(#AECEF2, #79BCFF)
+    box-shadow: inset 0px 0px 8px #646464
+    -moz-box-shadow: inset 0px 0px 8px #646464
+    -webkit-box-shadow: inset 0px 0px 8px #646464
+    behavior: url('http://10.1.5.5/~andrew_colclough/interfaces/r-feedback/site/PIE.htc')
+  td.highlight
+.ui-state-hover
+  :border 1px dashed #F23737
+  :background #FCEBED url() no-repeat
+  
+  
+  
+  
+  
+  
+  
+  

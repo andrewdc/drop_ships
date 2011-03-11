@@ -1,0 +1,253 @@
+
+
+
+// ActionBar jQuery Pluggin
+(function($){
+   
+   $.fn.actionbar = function( options ){
+      var defaults = {
+            IANC: 0,                   // IAN Client ID
+            protocol: (("https:" == document.location.protocol) ? "https://www." : "http://www."),
+            domain: "dev1.instantaction.com/actionbar/",
+            imageBase: "/images/",
+            styleBase: "/themes/default/css/",
+            displayMode: "full",    // Display modes, full | small | mini 
+            target: "body",          // What DOM element are we loading the actionbar into
+            position: "top",          // How should we position the actionbar top | bottom 
+            docked: false,          // The toolbar can be locked to the top or bottom of the page, even if scrolled
+            allowResize: false,      // Should the toggle be available to allow resizing of the actionbar 
+            searchEnabled: false, // Should the search box be visible or hidden
+            searchToggled: false // Should the search box be available
+         };
+       
+       // Here we fake a fetch to the server to get the options...
+       // We need to make a decision if we want to allow for overriding server saved options
+       // with instance options or vise versa.
+       //var savedOptions = { displayMode: "full", allowResize: true };
+       
+       //var options = $.extend( defaults,  savedOptions );
+       
+       // Override with instance options 
+       var options = $.extend( defaults, options );
+       
+       var blockList = [ "game", "store", "tool" ];
+       
+       var gameBlock = [ { title: "Fallen Empire Legions",
+                                    image: {url: options.protocol + options.domain + options.imageBase + "game_icon_16x16.png", width: 16, height: 16},
+                                    url: "http://www.instantaction.ian/games/fallen-empire-legions"
+                                   },
+                                   { title: "Marble Blast Online",
+                                    image: { url: "http://" + options.imageBase + "mbo_64x64.png", width: 16, height: 16},
+                                    url: "http://www.instantaction.ian/games/marble-blast-online"
+                                   },
+                                   { title: "Rokkit Ball",
+                                     image: { url: "http://" + options.imageBase + "rokkit_64x64.png", width: 16, height: 16},
+                                     url: "http://www.instantaction.ian/games/rokkit-ball"
+                                   }
+                                 ];
+                                 
+       var storeBlock = [ { "title": "Item XYZ",
+                                    "image": "http://static.actionbar.ian/images/actionbar/XYZ_64x64.png",
+                                    "url": "http://www.instantaction.ian/store/XYZ"
+                                   },
+                                   { "title": "Booya!",
+                                    "image": "http://static.actionbar.ian/images/actionbar/booya_64x64.png",
+                                    "url": "http://www.instantaction.ian/store/Booya"
+                                   },
+                                   { "title": "Action Gear",
+                                    "image": "http://static.actionbar.ian/images/actionbar/gear_64x64.png",
+                                    "url": "http://www.instantaction.ian/store/gear"
+                                   }
+                                 ];
+       
+       var toolBlock = [ {  } ];
+       
+       // Load the CSS if its not loaded already
+       if( $("#__ian_actionbar_css").get().length == 0 ){
+         $("body").append("<link id='__ian_actionbar_css' rel='stylesheet' href='" + options.protocol + options.domain + options.styleBase + "actionbar.css" + "' type='text/css' media='screen' />");
+       }
+       
+       buildActionBar( this );
+       
+      
+   
+      function buildActionBar( el ){
+         
+         return el.each( function(){
+            
+            var obj = $(this);
+            
+            // Timestamp to get unique identifier
+            var aid = (new Date()).getTime();
+            
+            try{           
+               // this is the actionbar MAIN CONTAINER
+               var ab = document.createElement("div");
+               ab.id = "__ian_ab_" + aid;
+               ab.setAttribute( "class", "__ian_actionbar" );
+               
+               // This is the actionbar background container. Shoudl do
+               // nothing but allow for a background panel.
+               var abBgDiv = document.createElement("div");
+               abBgDiv.id = "__ian_ab_bgdiv_" + aid;
+               abBgDiv.setAttribute( "class", "__ian_actionbar_background_div" );
+               
+               var abDataDiv = document.createElement("div");
+               abDataDiv.setAttribute( "class", "__ian_actionbar_data_div" );
+               abDataDiv.id = "__ian_ab_data_div_" + aid;
+               
+               var abLogo = document.createElement("div");
+               abLogo.id = "__ian_ab_logo_" + aid;
+               abLogo.setAttribute("class", "__ian_actionbar_logo");
+
+               abDataDiv.appendChild( abLogo );
+               
+               ab.appendChild( abBgDiv );
+               ab.appendChild( abDataDiv );
+            }
+            catch( err ){ if( console ) console.erro( err ); }
+            
+            var blocks = actionBlocks();
+            
+            abDataDiv.appendChild( blocks );
+            
+            buildSearchBox();
+            
+            // In this case the target is the docment and no target is defined, so
+            // lets add it to the body
+            if( typeof obj == "object" && obj.parent().length  == 0 ){
+               
+               obj = ( options.target != "body" ) ? $("#" + options.target ) : $("body");
+               
+               if( options.position == "top" ){
+                  obj.prepend( ab );
+               }
+               else if( options.position == "bottom" ){
+                  obj.append( ab );
+               }
+               
+            }
+            // In this case the actionbar is being applied to a container tab by id or class
+            else if( typeof obj == "object" && obj.length > 0){
+               obj.html( ab );
+            }
+            else{
+               throw("Can't target container to add actionbar");
+            }
+            
+            try{
+               bindMenus();   
+            }catch( err ){ if( console ) console.error( err ); };
+            
+         });
+      };
+      
+      function actionBlocks(){
+         //console.log( "afdf" + options.IANC );
+         
+         var timestamp = (new Date()).getTime();
+         
+         var blox = document.createElement("div");
+         blox.id = "gameBlock_" + timestamp;
+         blox.setAttribute( "class", "__ian_actionbar_menu_box" );
+         
+         var bloxTitle = document.createElement("span");
+         bloxTitle.id = "gameBlockMenuTitle_" + timestamp;
+         bloxTitle.setAttribute( "class", "__ian_action_menu_title" );
+         bloxTitle.innerHTML = "Games";
+         
+         var bloxList = document.createElement("ul");
+         bloxList.setAttribute( "class", "__ian_actionbar_menu_list" );
+         
+         for( var x = 0; x < gameBlock.length; x++ ){
+            
+            try{
+               var item = document.createElement("li");
+               item.id = "game_" + x ;
+               item.setAttribute("class", "__ian_actionbar_game_menu_item");
+            }
+            catch( err ){ if( console ) console.error( "li: " + err ); }
+            
+            try{
+               var itemLink = document.createElement("a");
+               itemLink.setAttribute("href", gameBlock[x].url );
+            }catch( err ){ if( console ) console.error( "a: " + err ); }
+            
+            try{
+               var itemImage = new Image();
+               itemImage.name = "image_" + gameBlock[x].title.replace("/ /i", "_");
+               itemImage.id = "image_" + gameBlock[x].title.replace("/ /i", "_");
+               itemImage.src = gameBlock[x].image.url;
+               itemImage.width  = gameBlock[x].image.width;
+               itemImage.height = gameBlock[x].image.height;
+               itemImage.setAttribute("alt", ( gameBlock[x].title + " Image" ) );
+            }catch( err ){ if( console ) console.error( "img: " + err ); }
+            
+            itemLink.innerHTML = gameBlock[x].title;
+            itemLink.appendChild( itemImage );
+            item.appendChild( itemLink );
+            bloxList.appendChild( item );
+            blox.appendChild( bloxTitle );
+            blox.appendChild( bloxList );
+            
+         }
+         
+         return blox;
+         
+      };
+      
+      function actionTools(){
+         
+      };
+      
+      function bindMenus(){
+         $( ".__ian_action_menu_title").each( function(i){
+            
+            var obj  = $(this);
+            var parentMenuId = obj.parent().attr("id"); 
+            var timer = null;
+            
+            $(obj).mouseover( function(){
+               if( timer != null ) clearTimeout( timer );
+               
+               $(obj).siblings("ul.__ian_actionbar_menu_list").show();
+            }) 
+            .mouseout( function(){
+               // This prevents the menu from closing immediately on mouseout
+               timer = setTimeout( function(){ hideMenu( parentMenuId ); }, 500 );
+            });
+            
+            // This is the mouse catcher for the menu items.
+            $(obj).siblings("ul.__ian_actionbar_menu_list")
+            .mouseover( function(){
+               // clears the timeout because a user is hovering these menu items
+               clearTimeout( timer );
+            })
+            .mouseout( function(){
+               // user left, but maybe on accident so give a slight pause
+               timer = setTimeout( function(){ hideMenu( parentMenuId ); }, 500 );
+            });
+            
+         });
+      }
+      
+      function hideMenu( menu ){
+         $("#" + menu ).children("ul.__ian_actionbar_menu_list").hide();
+      }
+      
+      function buildSearchBox(){
+         
+         var timestamp = (new Date()).getTime();
+         
+         var searchBox = document.createElement("div");
+         searchBox.id = "__ian_actionbar_search_block_" + timestamp;
+         searchBox.setAttribute("class", "__ian_actionbar_search_block");
+         
+         
+         var searchField = document.createElement("input");
+         var searchBtn = new Image();
+      }
+      
+   };
+   
+})(jQuery); // End ActionBar jQuery Pluggin

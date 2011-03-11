@@ -1,0 +1,68 @@
+<html>
+
+<style>
+	a {outline: none;} /*fixes Firefox link/image border*/
+	.rating-module {width:80px; height:16px; z-index:0; background:url("stars.png") repeat-x 0 -120px; padding:3px 8px; 
+	-moz-border-radius:8px;
+	-webkit-border-radius :8px;
+	border: 1px solid #C0C0C0;
+	position:relative;
+	}
+	.current-rating {background:url("stars.png") no-repeat 0 -36px; position:absolute; top:0px; left:0px; width:48px; height:16px; z-index:2;}
+	.empty-units {background:url("stars.png") no-repeat 0 -72px; position:absolute; top:3px; left:8px; width:80px; height:16px; z-index:1;}
+	ul.rate-ui {list-style: none inside; width:80px; height:16px; position:absolute; top:3px; left:8px; z-index:5; margin:0; padding:0; overflow: visible;}
+	.rate-ui li {float:left;  width:16px; height:16px; position:relative;} 
+	.rate-ui li a {display:block; float:left; width:16px; height:16px; text-indent: -9999px; /*overflow:hidden;*/ letter-spacing:-1000em; position:relative;}
+	.rate-ui li a .tip {position:absolute; bottom:-27px; left:-15px; background:#E1E1E1; padding:3px 6px; -moz-border-radius:8px;
+	-webkit-border-radius :8px; text-align:center; /*width:50px;*/ text-indent: 0px; /*overflow:hidden;*/ letter-spacing:0em; z-index:10;}
+	.rate-ui li a:hover {background:url("stars.png") no-repeat 0 0px;}	
+	ul.rate1, ul.rate2, ul.rate3, ul.rate4, ul.rate5 {background:url("stars.png") no-repeat 0 0px;}
+	ul.rate1 {width:16px;}
+	ul.rate2 {width:32px;}
+	ul.rate3 {width:48px;}
+	ul.rate4 {width:64px;}
+	ul.rate5 {width:80px;}
+</style>
+<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+			$('.rating-module').hover(function() {
+			 $('.rate-ui').css('display', 'block');
+			}, function() {
+			 $('.rate-ui').css('display', 'none');
+			});
+			  
+			$("ul.rate-ui li").hover(function() {
+			  rating = $(this).attr('class');
+			  $(this).parent('ul.rate-ui').addClass(rating);
+			}, function() {
+			  $(this).parent('ul.rate-ui').removeClass(rating);
+			});
+			
+			
+	    // $("ul.rate-ui a").hover(function() {
+	    // 	           rateName = $(this).attr('name');
+	    // 	           $(this).append('<div class="tip">'+ rateName + '</div>');
+	    // 	         }, function() {
+	    // 	           $('.tip').remove();
+	    // 	         });
+		});
+</script>
+
+<div class="rating-module">
+	
+	<div class="empty-units">
+		<div class="current-rating"></div>
+	</div>
+	
+	<ul class="rate-ui" style="display:none;">
+		<li class="rate1"><a href="#" name="Not very helpful" onclick="return false;">rate 1</a></li>
+		<li class="rate2"><a href="#" name="Somewhat helpful" onclick="return false;">rate 2</a></li>
+		<li class="rate3"><a href="#" name="Helpful" onclick="return false;">rate 3</a></li>
+		<li class="rate4"><a href="#" name="A good resource" onclick="return false;">rate 4</a></li>
+		<li class="rate5"><a href="#" name="An outstanding resource" onclick="return false;">rate 5</a></li>
+	</ul>
+
+</div><!-- end rating-module -->
+
+</html>

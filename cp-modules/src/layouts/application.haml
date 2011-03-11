@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title StaticMatic
+    = stylesheets
+    = javascripts('jquery', :jqueryui, :mcp)
+  %body
+    .content
+      = yield
+    .footer
+      = link "pathways"
+      = link "buttons"
+      = link "mcp"

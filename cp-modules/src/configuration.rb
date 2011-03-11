@@ -1,0 +1,1 @@
+configuration.sass_options[:style] = :compact

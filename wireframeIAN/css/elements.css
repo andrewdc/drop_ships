@@ -1,0 +1,175 @@
+/* Channel Page  
+====================================*/  
+/*Wireframe Nav Menu*/
+.wfNav {position:absolute; z-index:100; height:50px; width:150px; right:0; text-align:right; padding:20px 10px 5px 5px;}
+#columns {background:#F0F0F0;}
+/*superheader*/
+.wrap {width:960px; /*background:#F0F0F0;*/ margin:0px auto 0px auto;}
+.superheader .ad728x90 {float:left;}
+.superheader .cart {float:left; margin:10px 0px 0px 10px; background:#EEE; width:222px; height:90px;}
+.superheader .cart p {text-align:center; padding:10px; background:#D7D7D7; font-weight:bold;}
+.superheader .cart p.thecart {margin-bottom:10px; padding:13px;}
+.superheader .cart p.wishlist {}
+/*headers*/
+h2 {padding:10px 5px 0px 5px;}
+/*ActionBar*/
+#head {background: #808080; height: 40px;}
+#head h1 {line-height: 3em; color: #FFF; text-align: center; font-size:1em;/*background: url(img/inettuts.png) no-repeat center; text-indent: -9999em*/}
+#actionBar {background: #E4E4E4; border-top:1px solid #ECECEC; border-bottom:1px solid #D0D0D0;}
+#actionBar .ialogo {float:left; background:#4C4C4C; padding:3px; margin:5px;}
+#actionBar ul li {float:left; }
+#actionBar ul li a{display:block; padding:3px; color:#000; margin-top:5px;}
+#actionBar ul li a:hover{background:#B9B9B9; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
+#actionBar ul.left {float:left;}
+#actionBar ul.right {float:right;}
+div.__ian_actionbar_search_block {top:-26px;}
+.staticAb {display:block;}
+/*side handle*/
+#sideHandleWrap {left:0px; position:fixed !important; top:170px; width:20px; z-index:999; color:#fff;}
+.side-handles {}
+.side-handles ul {list-style-type: none;}
+.side-handles ul li { margin-bottom:3px;}
+.side-handles ul li a {display:block; background:#FFF; border:1px solid #BFBFBF; -moz-border-radius-topright:3px; -moz-border-radius-bottomright:3px;  -webkit-border-top-right-radius:3px 3px;  -webkit-border-bottom-right-radius:3px 3px; color:#000; height:50px;}
+.side-handles ul li a:hover {background:#E2E2E2;}
+span.handle {line-height:6em; display:block; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);}
+
+/*Feature Head*/
+#feature {width:960px; background:#BBB; height:150px; text-align: center; /*margin-bottom:10px;*/}
+#feature p {margin:auto; padding:62px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+#home #feature {/*margin:10px 0px;*/ height:300px; background:#494949;}
+#home #feature .box {height:273px; width:170px; background:#636363; border:1px solid #969696; text-align:center; float:left; margin:10px 10px 10px 10px; -moz-border-radius: 4px; -webkit-border-radius: 4px;}
+#home #feature .box p {padding:116px 0px 0px 0px; font-weight: bold; color:#4D4D4D; color:#fff;}
+.devHeaders {width:50%; float:left;}
+#channel #feature h2, #channel #feature h3 {text-align:left; padding:10px 15px 0;}
+#channel #feature h3 {clear:left;}
+#channel #feature .devLogo {float:right; margin:10px 10px 0 0; width:210px; height:100px; background:#E6E6E6;}
+#channel #feature .devLogo p {padding-top:20%;}
+/*basic dynamic List*/
+dt {padding:10px; font-size:1.3em;}
+dl dd {margin-left:10px; padding:8px 0px;}
+/*browse Nav*/
+.browseNav dd {margin-left:10px; padding:2px 0px;}
+.browseNav dt, .browseNav dd {font-size:0.8em; font-weight:bold;}
+/*carousel*/
+#home #feature {height:auto; text-align:left;}
+#home #feature p {padding:3px;}
+.carousel {position:relative;}
+#carousel-1, #carousel-2, #carousel-3 {background:#C7C7C7; padding:10px;}
+.carouselContent {height:170px;}
+.carouselContent h3 {font-size:2.5em;}
+.carouselContent dd.gamelist {border:none;}
+ul.carouselNav {position:absolute; width:100px; top:170px; left:20px; z-index:10;}
+ul.carouselNav li a {padding:0.1em 0.5em; margin-right:3px; -moz-border-radius: 4px; -webkit-border-radius: 4px;}
+.carousel .ui-tabs-nav ul {background:none; border:none;}
+/*Featured Game*/
+.featuredGame .controls {width:100px; float:right;}
+.featuredGame .info {width:160px; float:left;}
+ul.hor-list li {float:left; list-style-type: none;}
+ul.hor-list li a {display:block; padding:3px;}
+/*selector matrix*/
+.matrixSelector {padding-bottom:10px;}
+.matrixSelector h3{width:125px; float:left; }
+.matrixSelector .left {float:left; width:650px;}
+.matrixSelector .right {float:right;}
+
+.matrixSelector ul.tabsHor {width:150px; float:left;}
+.matrixSelector ul.tabsHor li {float:left; }
+.matrixSelector ul.tabsHor li a{display:block; padding:3px; color:#000;}
+.matrixSelector ul.tabsHor li a:hover{background:#B9B9B9; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
+
+.matrixSelector ul.tabsPagination {width:100px; float:right;}
+.matrixSelector ul.tabsPagination li {float:left; }
+.matrixSelector ul.tabsPagination li a{display:block; padding:3px 5px 3px 5px; color:#fff; background:#7E7E7E; -moz-border-radius: 3px; -webkit-border-radius: 3px; margin-left:3px;}
+.matrixSelector ul.tabsPagination li a:hover{background:#B9B9B9; }
+.matrixTop {padding:10px 10px 5px 12px;}
+.matrixColumns {}
+.matrixColumns ul.tabsVert {float:left; width:127px; padding:0px 16px 0px 10px;}
+.matrixColumns ul.tabsVert li {background:#DCDCDC; border-top:1px solid #E9E9E9; border-bottom:1px solid #CFCFCF;}
+.matrixColumns ul.tabsVert li a {display:block; padding:10px 8px 10px 8px; text-transform: uppercase; color:#000; font-size:0.9em;}
+.matrixColumns ul.tabsVert li a:hover {background:#B6B6B6; color:#fff;}
+.selectedMatrix ul{float:left; width:240px;}
+.selectedMatrix ul li {padding:46px 0px 46px 46px; margin:2px; background:#C2C2C2; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
+
+.matrixSelector .box300x250 {margin:10px 10px 0px 0px;}
+.matrixSelector .box300x250 p {padding:95px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+/*tabs*/
+#tabs, #screens, #carousel {width:100%;}
+#columns .widget .widget-content .ui-tabs-nav ul {padding:0; margin-bottom:10px;}
+#columns .widget .widget-content .noOverflow {overflow:visible;}
+.ui-tabs-nav {border:none; position:relative; }
+.ui-tabs-nav ul{margin:0px 10px; background:#A8A8A8; border-bottom:1px solid #909090;}
+.ui-tabs-nav li {float:none;}
+#screen-1, #screen-2, #screen-3 {background:#9B9B9B; padding:10px;}
+#columns .widget .widget-content .ui-tabs-nav ul.screenNav li {padding:0;}
+#columns .widget .widget-content .ui-tabs-nav ul.screenNav {margin:0; border-top:1px solid #909090; border-bottom:none; position:absolute; top:0; right:0; z-index:10;}
+.ui-tabs-nav .screenNav li {float:left;}
+ul.screenNav li a {padding:0.1em 1em;}
+.ui-tabs-panel {background:none; border:none; padding:0;}
+/*productBox*/
+.productBox {height:120px; width:90px; background:#A8A8A8; border:1px solid #808080; text-align:center; float:left; margin:0px 10px 5px 0px; -moz-border-radius: 2px; -webkit-border-radius: 2px;}
+#columns .widget .widget-content .productBox p {padding:22px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+.product dd {margin-left:5px;}
+.product h3 {padding-bottom:5px;}
+.play {}
+/*Play*/
+.playgame {height:300px; background:#000; border:1px solid #808080; text-align:center; margin:5px 5px;}
+#columns .widget .widget-content .playgame p {padding:125px 0px 0px 0px; font-weight: bold; color:#fff;}
+/*125x215 ad block*/
+.box125 {height:125px; width:125px;  background:#808080; text-align:center; margin:auto; margin-top:10px; margin-bottom:10px;}
+#columns .widget .widget-content .box125 p {padding:35px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+/*120x600 ad block*/
+.box120x600 {height:600px; width:120px;  background:#808080; text-align:center; margin:auto; margin-top:10px; margin-bottom:10px;}
+#columns .widget .widget-content .box120x600 p {padding:35px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+/*ad728x90*/
+.ad728x90 {height:90px; width:728px;  background:#808080; text-align:center; margin:auto; margin-top:10px; margin-bottom:10px;}
+.ad728x90  p {padding:30px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+/*300x250 Ad Block*/
+.box300x250 {height:250px; width:300px; background:#808080; text-align:center; margin:10px auto 5px auto;}
+#columns .widget .widget-content .box300x250 p {padding:95px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+.boxHeight90 {height:90px; background:#A8A8A8; border:1px solid #808080; text-align:center; margin:5px 5px;}
+#columns .widget .widget-content .boxHeight90 p {padding:30px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+/*180x120*/
+.box180x120 {height:120px; width:180px; background:#A8A8A8; border:1px solid #808080; text-align:center; float:left; margin:0px 10px 5px 0px; -moz-border-radius: 2px; -webkit-border-radius: 2px;}
+#columns .widget .widget-content .box180x120  p {padding:40px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+.featuredGame {background:#FFF;}
+.featuredGame h3 {padding:10px 0px 5px 10px;}
+.featuredGame .info h3 {padding:10px 0px 5px 0px;}
+/*List Images*/
+.box64x64 {height:64px; width:64px; background:#A8A8A8; border:1px solid #808080; text-align:center; float:left; margin:0px 10px 5px 0px; -moz-border-radius: 2px; -webkit-border-radius: 2px;}
+#columns .widget .widget-content .box64x64 p {padding:22px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+dd.gamelist {border-bottom:1px solid #E4E4E4;}
+#columns .widget .widget-content dd p {padding:0;}
+#columns .widget .widget-content dd h3 {}
+/*Footer*/
+#footer {width:100%; clear:both; height:150px; background:#808080; text-align:center;}
+#footer p {margin:auto; padding:65px 0px 0px 0px; font-weight: bold; color:#4D4D4D;}
+/*screenshots*/
+#screens {position:relative;}
+
+/* Facebook  
+====================================*/ 
+#facebook .color-white {background:#fff;}
+#facebook #columns #column3 .widget .widget-content {background:#fff;}
+#facebook #head {margin:0 auto; width:965px; background:#fff; text-align:center;}
+#facebook #head h1 { width: 965px; text-indent: -9999em; height: 40px; background: #fff url('img/fbHeader.gif') no-repeat; } 
+#actionbar {background: #808080; height: 40px; width:728px; text-align:center; clear:left;}
+#actionbar h1 {line-height: 3em; color: #FFF; text-align: center; font-size:1em;}
+#facebook #feature {width:728px; float:left; }
+#facebook #columns{ background:#fff;}
+#facebook #columns #column1 {width: 145px; clear:left;}
+#facebook #columns #column2 {width: 593px;}
+#facebook #columns #column3 {width: 200px; float:right; margin-top:-130px;}
+#facebook .facebookAds {padding-top:50px; height:758px; background: #fff url('img/fbSidebarAds.gif') 0 0px no-repeat;}
+#facebook #footer {height:44px; padding-top:20px; background: #fff url('img/fbFooter.gif') center 20px no-repeat;}
+#facebook #footer p {display:none;}
+
+#product #column2 {width:593px;}
+#product #column3 {width:222px;}
+#product #feature {text-align:left;}
+
+#search #column2 {width:815px;}
+#search #column3 {display:none;}
+
+#channel #column2 {width:593px;}
+#channel #column3 {width:222px;}
+#channel .box64x64 {height:88px; width:73px;}
